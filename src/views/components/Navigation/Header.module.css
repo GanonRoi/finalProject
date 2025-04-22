@@ -1,0 +1,24 @@
+.header {
+    width: 100%;
+    padding: 0px 10px;
+    background-color: white;
+    display: flex;
+    position: relative;
+  }
+  
+  .logo {
+    max-height: 120px;
+    object-fit: contain;
+  }
+  h2{
+    direction: rtl;
+    margin-left: 100px;
+  }
+  button{
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    background-color: #5A4797;
+    color: white;
+    letter-spacing: 2px;
+  }
