@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './homePage.css'; // אם יש CSS
+import './homePage.css';
 
 function HomePage() {
   return (

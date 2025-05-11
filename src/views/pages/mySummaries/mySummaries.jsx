@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './mySummaries.css'; // אם יש CSS
+import './mySummaries.css';
 
 function MySummaries() {
   return (

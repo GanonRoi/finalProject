@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './addAssignments.css'; // אם יש CSS
+import './addAssignments.css'; 
 
 function AddAssignments() {
   return (

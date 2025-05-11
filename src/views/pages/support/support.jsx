@@ -1,10 +1,10 @@
 
 import React from 'react';
-import './support.css'; // אם יש CSS
+import './support.css'; 
 
 function Support() {
   return (
-    <div>
+    <div className='mainDev' >
       <h1>עמוד תמיכה במשתמשים</h1>
     </div>
   );

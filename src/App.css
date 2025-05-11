@@ -1,3 +1,7 @@
+@import url('./views/styles_CSS/_reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Heebo:wght@100..900&display=swap');
+
+
 #root {
   top:0;
   bottom: 0;
@@ -5,5 +9,6 @@
   right: 0;
   position: absolute;
   background: linear-gradient(to top, #0A364E, #1A74A6);
+  font-family: Heebo;
 }
 

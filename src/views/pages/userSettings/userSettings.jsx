@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './userSettings.css'; // אם יש CSS
+import './userSettings.css'; 
 
 function UserSettings() {
   return (
