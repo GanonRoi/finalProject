@@ -1,8 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../../../assets/Logo.jpg';
 import styles from './signup.module.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { doCreateUserWithEmailAndPassword } from '../../../firebase/auth';
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from '../../../firebase/firbase';  // שים לב לייבוא db
 
 function Signup() {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    birthDate: ''
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    if (form.password !== form.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    try {
+      // יוצרים משתמש בפיירבייס ומקבלים את האובייקט user
+      const userCredential = await doCreateUserWithEmailAndPassword(form.email, form.password);
+      const user = userCredential.user;
+
+      // שומרים את הנתונים הנוספים ב-Firestore תחת אוסף "users" עם מזהה ה-uid של המשתמש
+      await setDoc(doc(db, "users", user.uid), {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        username: form.username,
+        email: form.email,
+        birthDate: form.birthDate,
+        createdAt: new Date()
+      });
+
+      navigate("/"); // נניח שאתה מפנה לעמוד הבית לאחר התחברות
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
+  const handleGoogleSignup = async () => {
+    try {
+      await doSignInWithGoogle();
+      navigate("/");
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
   return (
     <div className={styles.registerContainer}>
       <div className={styles.registerCard}>
@@ -14,23 +69,26 @@ function Signup() {
             <p className={styles.signP}>Just a few details and we're getting started!</p>
           </div>
         </div>
-        <div className={styles.formRow}>
-          <input type="text" name="firstName" placeholder="First Name" required />
-          <input type="text" name="lastName" placeholder="Last Name" required />
-        </div>
-        <div className={styles.formRow}>
-          <input type="text" name="username" placeholder="User name" required />
-          <input type="email" name="email" placeholder="Email" required />
-        </div>
-        <div className={styles.formRow}>
-          <input type="password" name="password" placeholder="Password" required />
-          <input type="password" name="confirmPassword" placeholder="Password Verification" required />
-        </div>
-        <div className={styles.formRow}>
-          <input type="date" name="birthDate" required />
-        </div>
-        <button type="submit" className={styles.signupBtn}>SIGN UP</button>
-        <p className={styles.loginLink}>Already have an account? <a href="/login">Login here</a></p>
+        <form onSubmit={handleSignup}>
+          <div className={styles.formRow}>
+            <input type="text" name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} required />
+            <input type="text" name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} required />
+          </div>
+          <div className={styles.formRow}>
+            <input type="text" name="username" placeholder="User name" value={form.username} onChange={handleChange} required />
+            <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required />
+          </div>
+          <div className={styles.formRow}>
+            <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleChange} required />
+            <input type="password" name="confirmPassword" placeholder="Password Verification" value={form.confirmPassword} onChange={handleChange} required />
+          </div>
+          <div className={styles.formRow}>
+            <input type="date" name="birthDate" value={form.birthDate} onChange={handleChange} required />
+          </div>
+          <button type="submit" className={styles.signupBtn}>SIGN UP</button>
+        </form>
+        <button onClick={handleGoogleSignup} className={styles.signupBtn}>Sign up with Google</button>
+        <p className={styles.loginLink}>Already have an account? <Link to="/login">Login here</Link></p>
       </div>
     </div>
   );

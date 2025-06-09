@@ -1,0 +1,100 @@
+.mainDev {
+  padding: 40px;
+  min-height: 100vh;
+  font-family: Heebo;
+  direction: ltr;
+  color: #111;
+}
+
+.supportContainer {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.faqBox,
+.contactBox {
+  background: #DDD7F3;
+  padding: 25px;
+  border-radius: 25px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.searchInput {
+  width:520px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 20px;
+  background-color: #dff6d8;
+  color: #333;
+  font-style: italic;
+}
+
+.faqBox ul {
+   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-height: 300px;      /* 👈 גובה קבוע */
+  overflow-y: auto;       /* 👈 גלילה אנכית */
+  padding-right: 10px;  
+}
+
+.faqBox li {
+  background-color: #d8fff2;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+.faqBox li p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+.contactForm label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  background: #d9f0ed;
+  margin-bottom: 15px;
+}
+
+.contactForm button {
+  background-color: #1A74A6;
+  color: white;
+  width: 200px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+    display: block;      /* כדי לאפשר margin אוטומטי */
+  margin: 20px auto 0; 
+}

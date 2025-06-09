@@ -1,60 +1,56 @@
-.registerContainer {
+.loginContainer {
     min-height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to top, #0A364E, #1A74A6);
     height: 100vh;
-  }
-.registerCard {
-    background-color: #ffc0cb;
+}
+.loginBox {
+   background-color: #ffc0cb;
     border-radius: 20px;
     padding: 40px;
     width: 700px;
-    height: 500px;
     max-width: 90%;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    
-  }
-  .logo{
-    height: 110px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    height: 500px;
+}
+ .logo{
+    height: 140px;
     mix-blend-mode: multiply;
-    margin-right: 20px;
+    margin-right: 60px;
   }
-  h1 {
+.welcomeTitle {
     font-size: 90px;
     margin-bottom: 0;
-  }
-  
-  h2 {
-    font-size: 40px;
+}
+
+.welcomeSubtitle {
+  font-size: 40px;
     margin-top: 0;
-  }
-  
- .signP {
-    font-size: 16px;
-    margin-bottom: 20px;
-    margin-top: 5px;
-  }
-  .formRow {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  input {
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.loginForm input {
     padding: 10px;
     border: none;
     border-radius: 10px;
-    width: 45%;
+    width: 80%;
     min-width: 200px;
     font-size: 14px;
-  }
-  
-  .signupBtn {
-    margin-top: 20px;
+}
+
+.loginForm button {
+  margin-top: 20px;
     background-color: #007acc;
     color: white;
     padding: 12px 40px;
@@ -63,31 +59,29 @@
     font-size: 16px;
     width: 350px;
     letter-spacing: 7px;
-    margin: 0 auto;
+    margin-top: 40px;
     display: block;
-  }
-  
-  .signupBtn:hover {
-    background-color: #005fa3;
-  }
-  
-  .loginLink {
-    margin-top: 15px;
-    font-size: 13px;
-    text-align: center;
-  }
-  
-  .loginLink a {
-    color: #000;
-    text-decoration: underline;
-  }
+}
+.loginForm button:hover{
+  background-color: #005fa3;
+}
+
+.registerText {
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.registerText a {
+  font-weight: bold;
+  text-decoration: underline;
+}
   .topCard{
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
   }
-  .topCardText{
+   .topCardText{
     display: flex;
     flex-direction: column;
     align-items: start;

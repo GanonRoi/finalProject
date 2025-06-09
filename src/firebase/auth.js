@@ -4,11 +4,11 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndP
 
 
 export const doCreateUserWithEmailAndPassword = async(EmailAuthCredential, password)=>{
-    return CreateUserWithEmailAndPassword(auth, EmailAuthCredential, password);
+    return createUserWithEmailAndPassword(auth, EmailAuthCredential, password);
 };
 
 export const doSignInWithEmailAndPassword =  (email,password) =>{
-    return SignInWithEmailAndPassword(auth,email,password);
+    return signInWithEmailAndPassword(auth,email,password);
 };
 
 export const doSignInWithGoogle = async () =>{
