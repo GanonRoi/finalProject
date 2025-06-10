@@ -4,7 +4,8 @@ import styles from './signup.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { doCreateUserWithEmailAndPassword } from '../../../firebase/auth';
 import { doc, setDoc } from "firebase/firestore";
-import { auth, db } from '../../../firebase/firbase';  // שים לב לייבוא db
+import { auth, db } from '../../../firebase/firbase';  
+
 
 function Signup() {
   const navigate = useNavigate();
@@ -29,11 +30,9 @@ function Signup() {
       return;
     }
     try {
-      // יוצרים משתמש בפיירבייס ומקבלים את האובייקט user
       const userCredential = await doCreateUserWithEmailAndPassword(form.email, form.password);
       const user = userCredential.user;
 
-      // שומרים את הנתונים הנוספים ב-Firestore תחת אוסף "users" עם מזהה ה-uid של המשתמש
       await setDoc(doc(db, "users", user.uid), {
         firstName: form.firstName,
         lastName: form.lastName,
@@ -43,15 +42,36 @@ function Signup() {
         createdAt: new Date()
       });
 
-      navigate("/"); // נניח שאתה מפנה לעמוד הבית לאחר התחברות
+      navigate("/");
     } catch (err) {
       alert(err.message);
     }
   };
 
   const handleGoogleSignup = async () => {
+    if (!form.firstName || !form.lastName || !form.username || !form.birthDate) {
+      alert("Please fill in all required fields before signing up with Google.");
+      return;
+    }
+
     try {
-      await doSignInWithGoogle();
+      const result = await doSignInWithGoogle();
+      const user = result.user;
+
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (!userSnap.exists()) {
+        await setDoc(userRef, {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          username: form.username,
+          email: user.email,
+          birthDate: form.birthDate,
+          createdAt: new Date()
+        });
+      }
+
       navigate("/");
     } catch (err) {
       alert(err.message);

@@ -26,7 +26,7 @@ const localizer = dateFnsLocalizer({
 const events = [
   {
     title: 'JavaScript task due',
-    start: new Date(2025, 5, 9), // יוני = חודש 5
+    start: new Date(2025, 5, 9),
     end: new Date(2025, 5, 9),
     allDay: true,
   },

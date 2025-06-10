@@ -23,7 +23,8 @@ function MyAssignments() {
         <OpenAssignmentsChart />
       </div>
       <div className={styles.div4}>
-        <h3> Important reminders</h3>
+        <h3> 🔔Important reminders</h3>
+        <p>Don't forget to submit your JavaScript assignment!</p>
       </div>
       </div>
     </div>

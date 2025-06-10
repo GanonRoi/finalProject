@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 import Logo from '../../../assets/Logo.jpg';
 import { auth } from '../../../firebase/firbase';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../../firebase/firbase'; // ודא שיש לך export ל־db
+import { db } from '../../../firebase/firbase'; 
 
 function Header({ onLogout }) {
   const [userName, setUserName] = useState('');
@@ -17,7 +17,7 @@ function Header({ onLogout }) {
           const userSnap = await getDoc(userRef);
           if (userSnap.exists()) {
             const data = userSnap.data();
-            setUserName(data.name || "משתמש");
+            setUserName(data.firstName || "משתמש");
           } else {
             console.log("לא נמצאו נתונים עבור המשתמש");
           }
