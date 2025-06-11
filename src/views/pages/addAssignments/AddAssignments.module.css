@@ -127,3 +127,191 @@
   accent-color: #1e103f;
   cursor: pointer;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.card {
+  background-color: #ffb6c1;
+  padding: 32px;
+  border-radius: 30px;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formGrid {
+  display: flex;
+  gap: 40px;
+}
+
+.leftSide, .rightSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input {
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+  background-color: #f3f4f6;
+  width: 90%;
+}
+
+.memberRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.taskRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.weightInput {
+  width: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f3f4f6;
+  text-align: center;
+}
+
+.plusBtn {
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 25%;
+  color: rgb(133, 132, 132);
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.submitBtn {
+  background-color: #1e103f;
+  border: none;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 16px;
+  align-self: center;
+  width: 180px;
+}
+
+.divider {
+  border: none;
+  border-top: 3px solid #ccc;
+  margin: 12px 0;
+}
+
+.label {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.fileInput {
+  padding: 6px;
+}
+
+.checkboxLabel {
+  display: inline-flex;
+  align-items: start;
+  flex-direction: row;
+  justify-content: start;
+  
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 10px;
+  gap: 4px;
+}
+.checkboxLabel input[type="checkbox"] {
+  all: unset;
+  appearance: checkbox;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  accent-color: #1e103f;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .formGrid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .weightInput {
+    width: 100%;
+    max-width: 80px;
+    font-size: 14px;
+  }
+
+  .memberRow,
+  .taskRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .plusBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+
+  .fileInput {
+    width: 100%;
+  }
+
+  .checkboxLabel {
+    font-size: 14px;
+  }
+
+  .submitBtn {
+    width: 100%;
+    max-width: 220px;
+    font-size: 15px;
+  }
+}

@@ -5,11 +5,11 @@ import { auth } from '../../../firebase/firbase';
 import { signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/firbase';
-import { useNavigate } from 'react-router-dom'; // ✅ ייבוא ניווט
+import { useNavigate } from 'react-router-dom'; 
 
 function Header() {
   const [userName, setUserName] = useState('');
-  const navigate = useNavigate(); // ✅ יוזר לניווט
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -35,8 +35,8 @@ function Header() {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth); // ✅ ניתוק מהמערכת
-      navigate('/');       // ✅ מעבר לעמוד נחיתה
+      await signOut(auth); 
+      navigate('/');       
     } catch (error) {
       console.error("שגיאה בהתנתקות:", error);
     }

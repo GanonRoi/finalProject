@@ -135,3 +135,71 @@ body{
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .mainDiv {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .calendarBox {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+
+  .sideBoxes {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .box {
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  .box h3 {
+    font-size: 20px;
+  }
+
+  .eventInfoBox {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .eventRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 14px;
+  }
+
+  .statusBar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+  }
+
+  .statusCard {
+    justify-content: space-between;
+    font-size: 14px;
+  }
+
+  .statusNumber {
+    font-size: 16px;
+  }
+
+  .reminderForm {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .reminderForm input {
+    width: 100%;
+  }
+
+  .reminderForm button {
+    width: 100%;
+  }
+}

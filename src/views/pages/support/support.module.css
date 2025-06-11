@@ -98,3 +98,50 @@ h3 {
     display: block;     
   margin: 20px auto 0; 
 }
+@media (max-width: 768px) {
+  .mainDev {
+    padding: 20px;
+  }
+
+  .supportContainer {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .faqBox,
+  .contactBox {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .searchInput {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .faqBox ul {
+    max-height: 250px;
+    padding-right: 0;
+  }
+
+  .faqBox li {
+    font-size: 14px;
+  }
+
+  .faqBox li p {
+    font-size: 0.9rem;
+  }
+
+  .contactForm input,
+  .contactForm textarea {
+    font-size: 14px;
+  }
+
+  .contactForm button {
+    width: 100%;
+    max-width: 250px;
+    font-size: 14px;
+  }
+}

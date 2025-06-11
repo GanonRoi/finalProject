@@ -85,3 +85,57 @@
     flex-direction: column;
     align-items: start;
   }
+@media (max-width: 768px) {
+  .loginBox {
+    width: 90%;
+    height: auto;
+    padding: 24px;
+  }
+
+  .logo {
+    height: 80px;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .topCard {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .topCardText {
+    align-items: center;
+  }
+
+  .welcomeTitle {
+    font-size: 48px;
+  }
+
+  .welcomeSubtitle {
+    font-size: 26px;
+  }
+
+  .loginForm {
+    gap: 16px;
+    width: 100%;
+  }
+
+  .loginForm input {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .loginForm button {
+    width: 90%;
+    font-size: 14px;
+    letter-spacing: 4px;
+  }
+
+  .registerText {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 24px;
+  }
+}

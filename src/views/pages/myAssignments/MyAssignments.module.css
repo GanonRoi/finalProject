@@ -69,3 +69,32 @@
   box-sizing: border-box;
   background: linear-gradient(to top, #0A364E, #1A74A6);
 }
+@media (max-width: 768px) {
+  .mainDiv {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .parent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .div1,
+  .div2,
+  .div3,
+  .div4,
+  .div5 {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+
+  .div4 ul {
+    gap: 10px;
+    font-size: 14px;
+  }
+}
