@@ -105,10 +105,12 @@ function Signup() {
           <div className={styles.formRow}>
             <input type="date" name="birthDate" value={form.birthDate} onChange={handleChange} required />
           </div>
+        <div className={styles.buttonDiv}>
           <button type="submit" className={styles.signupBtn}>SIGN UP</button>
-        </form>
         <button onClick={handleGoogleSignup} className={styles.signupBtn}>Sign up with Google</button>
+        </div>
         <p className={styles.loginLink}>Already have an account? <Link to="/login">Login here</Link></p>
+        </form>
       </div>
     </div>
   );

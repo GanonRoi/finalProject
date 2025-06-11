@@ -1,6 +1,3 @@
-
-
-
 .parent {
    display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -10,6 +7,9 @@
   max-width: 1800px;
   margin: 0 auto;
   padding: 20px;
+  min-height: 100vh; 
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .div1 {
@@ -49,4 +49,23 @@
   background-color: #DEEEEA;
   border-radius: 12px;
   padding: 15px;
+}
+.div4 ul {
+  list-style: disc; 
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mainDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px;
+  min-height: 100vh; 
+  width: 100%; 
+  box-sizing: border-box;
+  background: linear-gradient(to top, #0A364E, #1A74A6);
 }

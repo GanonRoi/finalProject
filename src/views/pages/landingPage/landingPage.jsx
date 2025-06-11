@@ -7,25 +7,25 @@ import Land from '../../../assets/land.png';
 function LandingPage() {
   const features = [
     {
-      icon: "/frame.svg",
+      icon: "/clipboard.png",
       title: "Task Management",
       description: "Keep track of all your assignments, projects, and exams in one place. Never miss a deadline again.",
       bgColor: "#3bcbba",
     },
     {
-      icon: "/frame-3.svg",
+      icon: "/calendar.png",
       title: "Calendar Integration",
       description: "Visualize your schedule and plan ahead with our intuitive calendar view. Sync with your existing calendars.",
       bgColor: "#107567",
     },
     {
-      icon: "/frame-2.svg",
+      icon: "/bell.png",
       title: "Smart Reminders",
       description: "Get notified about upcoming deadlines and important events so you can stay on top of your studies.",
       bgColor: "#ff5386",
     },
     {
-      icon: "/frame-1.svg",
+      icon: "/group.png",
       title: "Collaborative Study",
       description: "Work together with classmates on group projects. Share notes, assign tasks, and track progress collectively.",
       bgColor: "#25174e",
@@ -78,8 +78,12 @@ function LandingPage() {
           <p>The ultimate task management app designed specifically for students. Track assignments, set reminders, and collaborate with classmates - all in one place.</p>
         </div>
         <div className={styles.heroBtns}>
+          <Link to ="/login">
           <button className={styles.getStartedBtn}>Get Started</button>
+          </Link>
+          <a href="#features">
           <button className={styles.learnMoreBtn}>Learn More</button>
+          </a>
         </div>
         <img src={Land} alt="לוגו האתר" className={styles.heroImage} />
       </section>
@@ -121,7 +125,9 @@ function LandingPage() {
       <section className={styles.cta}>
         <h2>Ready to boost your productivity?</h2>
         <h3>Start using EduFlow today.</h3>
+        <Link to ="/signup">
         <button className={styles.ctaBtn}>Sign up for free</button>
+        </Link>
       </section>
 
       <footer className={styles.footer}>

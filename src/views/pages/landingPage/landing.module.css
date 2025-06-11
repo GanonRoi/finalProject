@@ -15,12 +15,12 @@
 
 .nav {
   height: 100%;
-  max-width: 850px;
+  max-width: 3050px;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .logo{
@@ -35,7 +35,7 @@
 .navLinks a {
   padding: 8px 12px;
   border-radius: 6px;
-  font-size: 13.6px;
+  font-size: 16.6px;
   color: #374151;
   text-decoration: none;
 }
@@ -59,14 +59,18 @@
 
 .loginBtn {
   background: none;
-  border: none;
+  border: #107567 3px solid;
   color: #107567;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .signupBtn {
   background-color: #3bcbba;
   border: none;
   color: white;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .hero {
@@ -142,15 +146,21 @@
 
 .sectionTag {
   color: #3bcbba;
-  font-size: 13.6px;
+  font-size: 26.6px;
+  display: flex;
+  justify-content: center;
+  padding-right: 250px;
 }
 
 .features h2 {
   color: #111827;
-  font-size: 30.6px;
+  font-size: 40.6px;
   margin-top: 8px;
 }
-
+.testimonials h2 {
+  text-align: center;
+  padding-left: 230px;
+}
 .featureGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -176,17 +186,18 @@
 .featureIcon img {
   width: 24px;
   height: 24px;
+  filter: brightness(0) invert(1);
 }
 
 .featureContent h3 {
   color: #111827;
-  font-size: 15.3px;
+  font-size: 24.3px;
   margin-bottom: 8px;
 }
 
 .featureContent p {
   color: #6b7280;
-  font-size: 13.6px;
+  font-size: 18.6px;
 }
 
 .testimonials {
@@ -227,7 +238,7 @@
 
 .role {
   color: #3bcbba;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .cta {
@@ -285,6 +296,9 @@
 .copyright {
   color: #6b7280;
   font-size: 13.6px;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 768px) {

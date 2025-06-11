@@ -3,6 +3,7 @@
   min-height: 100vh;
   font-family: sans-serif;
   color: #111;
+  background: linear-gradient(to top, #0A364E, #1A74A6);
 }
 
 .box {

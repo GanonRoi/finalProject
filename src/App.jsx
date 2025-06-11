@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Navigation from './views/components/Navigation/Navigation';
 import HomePage from './views/pages/homePage/homePage';
@@ -12,50 +12,35 @@ import Support from './views/pages/support/support';
 import UserSettings from './views/pages/userSettings/userSettings';
 import Header from './views/components/Navigation/Header';
 import LandingPage from './views/pages/landingPage/landingPage';
-
-
+import { useAuth } from './contexts/authContext';
 function App() {
-  // נניח שמצב ההתחברות - false בהתחלה (לא מחובר)
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { userLoggedIn, loading } = useAuth();
 
-  // פונקציה לדוגמא שמתחברת - אמורה להיות מחוברת לאמת של התחברות אמיתית
-  function handleLogin() {
-    setIsLoggedIn(true);
-  }
+  if (loading) return <div>Loading...</div>;
 
-  // פונקציה לדוגמא להתנתקות
-  function handleLogout() {
-    setIsLoggedIn(false);
-  }
-
-  if (!isLoggedIn) {
-    // משתמש לא מחובר - מוציא רק עמודי נחיתה, הרשמה והתחברות (ללא ניווט)
-    return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/signup" element={<Signup onSignup={handleLogin} />} />
-          {/* כל נתיב אחר יפנה לעמוד הנחיתה */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Router>
-    );
-  }
-
-  // משתמש מחובר - מוציא את כל המערכת עם ניווט ועמוד בית
   return (
     <Router>
-      <Header onLogout={handleLogout} />
-      <Navigation />
+      {userLoggedIn && <Header />}
+      {userLoggedIn && <Navigation />}
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/myassignments" element={<MyAssignments />} />
-        <Route path="/mysummaries" element={<MySummaries />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/usersettings" element={<UserSettings />} />
-        {/* כל נתיב אחר מפנה לעמוד הבית */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {!userLoggedIn ? (
+          <>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/myassignments" element={<MyAssignments />} />
+            <Route path="/mysummaries" element={<MySummaries />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/usersettings" element={<UserSettings />} />
+            <Route path="/AddAssignments" element={<AddAssignments />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </>
+        )}
       </Routes>
     </Router>
   );

@@ -50,8 +50,8 @@ function Login({onLogin }) {
           <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required />
           <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleChange} required />
           <button type="submit">LOGIN</button>
+          <button onClick={handleGoogleLogin}>Login with Google</button>
         </form>
-        <button onClick={handleGoogleLogin}>Login with Google</button>
         <p className={styles.registerText}>
           Don’t have an account? <Link to="/signup">Register here</Link>
         </p>

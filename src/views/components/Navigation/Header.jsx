@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import styles from './Header.module.css';
 import Logo from '../../../assets/Logo.jpg';
 import { auth } from '../../../firebase/firbase';
+import { signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../../firebase/firbase'; 
+import { db } from '../../../firebase/firbase';
+import { useNavigate } from 'react-router-dom'; // ✅ ייבוא ניווט
 
-function Header({ onLogout }) {
+function Header() {
   const [userName, setUserName] = useState('');
+  const navigate = useNavigate(); // ✅ יוזר לניווט
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -30,14 +33,19 @@ function Header({ onLogout }) {
     fetchUserName();
   }, []);
 
-  const handleLogout = () => {
-    if (onLogout) onLogout(); // קריאה לפונקציית ההתנתקות מה-App.jsx
+  const handleLogout = async () => {
+    try {
+      await signOut(auth); // ✅ ניתוק מהמערכת
+      navigate('/');       // ✅ מעבר לעמוד נחיתה
+    } catch (error) {
+      console.error("שגיאה בהתנתקות:", error);
+    }
   };
 
   return (
     <header className={styles.header}>
       <img src={Logo} alt="לוגו האתר" className={styles.logo} />
-      <h2 className={styles.headerH2}>שלום {userName}!</h2>
+      <h2 className={styles.headerH2}>Hello {userName}!</h2>
       <button onClick={handleLogout} className={styles.headerB}>LOGOUT</button>
     </header>
   );
